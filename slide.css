@@ -1,0 +1,80 @@
+/* SLIDER */
+
+body{
+    background-color: black;
+}
+.slider {
+    position: relative;
+    max-width: 400px;
+    height: 500px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider input[type="radio"] {
+    display: none;
+}
+
+#slides {
+    display: flex;
+    flex-direction: column;
+    height: 400%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    filter: drop-shadow(2px 2px 7px white);
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+#controls {
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.625rem;
+    transform: translateY(-50%);
+}
+
+#controls label {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+#slide1:checked ~ #slides {
+    transform: translateY(0);
+}
+
+#slide2:checked ~ #slides {
+    transform: translateY(-25%);
+}
+
+#slide3:checked ~ #slides {
+    transform: translateY(-50%);
+}
+
+#slide4:checked ~ #slides {
+    transform: translateY(-75%);
+}
+
+/* Change control button colors when selected */
+#slide1:checked ~ #controls label[for="slide1"],
+#slide2:checked ~ #controls label[for="slide2"],
+#slide3:checked ~ #controls label[for="slide3"],
+#slide4:checked ~ #controls label[for="slide4"] {
+    background-color: #fec34d;
+    transform: scale(1.8);
+}
